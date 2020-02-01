@@ -33,7 +33,7 @@ public class CharacterScript : MonoBehaviour
         {
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
             moveDirection *= speed;
-            if (Input.GetButton("Jump")) moveDirection.y = jumpSpeed;
+            if (Input.GetAxis("Vertical") > 0) moveDirection.y = jumpSpeed;
         }
         else
         {
@@ -69,8 +69,8 @@ public class CharacterScript : MonoBehaviour
     void ChangeDirection()
     {
         float axis = Input.GetAxis("Horizontal");
-        if (axis < 0) transform.eulerAngles = new Vector3(0, 0, 0);
-        else if (axis > 0) transform.eulerAngles = new Vector3(0, -180, 0);
+        if (axis < 0) transform.eulerAngles = new Vector3(0, -180, 0);
+        else if (axis > 0) transform.eulerAngles = new Vector3(0, 0, 0);
     }
 
 }
