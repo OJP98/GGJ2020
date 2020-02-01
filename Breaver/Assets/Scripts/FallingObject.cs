@@ -9,7 +9,6 @@ public class FallingObject : MonoBehaviour
 
     public void SetPool(ObjectPull p) {
         pool = p;
-
     }
 
     public void Delete() {
