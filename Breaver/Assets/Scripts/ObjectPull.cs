@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class ObjectPull : MonoBehaviour
 {
-    public GamefallingObject fallingObject;
-    public GamefallingObject poolParent;
-    private Queue<GamefallingObject> pool;
+    public GameObject fallingObject;
+    public GameObject poolParent;
+    private Queue<GameObject> pool;
     private int poolSize = 3;
 
     void Start()
     {
-        pool = new Queue<GamefallingObject>();
+        pool = new Queue<GameObject>();
         IncreasePool();
     }
 
-    public void ReturnToPool(GamefallingObject toRecycle) {
+    public void ReturnToPool(GameObject toRecycle) {
         toRecycle.SetActive(false);
         toRecycle.gamefallingObject.transform.SetParent(poolParent.transform);
         pool.Enqueue(toRecycle);
@@ -25,7 +25,7 @@ public class ObjectPull : MonoBehaviour
     private void IncreasePool() {
         
         for (int i = 0; i < poolSize; i++) {
-            GamefallingObject newfallingObject = Instantiate(fallingObject, poolParent.transform);
+            GameObject newfallingObject = Instantiate(fallingObject, poolParent.transform);
             Food newfallingObject = newfallingObject.GetComponent<Food>();
             newfallingObject.SetPool(this);
             newfallingObject.SetActive(false);
@@ -33,13 +33,13 @@ public class ObjectPull : MonoBehaviour
         }
     }
 
-    public MovablefallingObject GetfallingObject() {
+    public MovableObject GetfallingObject() {
         if (pool.Count == 0) {
             IncreasePool();
         }
-        GamefallingObject newfallingObject = pool.Dequeue();
+        GameObject newfallingObject = pool.Dequeue();
         newfallingObject.SetActive(true);
-        MovablefallingObject movable = newfallingObject.GetComponent<MovablefallingObject>();
+        MovableObject movable = newfallingObject.GetComponent<MovableObject>();
         return movable;
     }
 }
