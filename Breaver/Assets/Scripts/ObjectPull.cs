@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectPull : MonoBehaviour
 {
-    public GameObject fallingObject;
+    public GameObject[] fallingObject;
     public GameObject poolParent;
     private Queue<GameObject> pool;
     private int poolSize = 3;
@@ -24,7 +24,8 @@ public class ObjectPull : MonoBehaviour
 
     private void IncreasePool() {
         for (int i = 0; i < poolSize; i++) {
-            GameObject newObject = Instantiate(fallingObject, poolParent.transform);
+            int fallingObjectNumber = Random.Range(0, fallingObject.Length);
+            GameObject newObject = Instantiate(fallingObject[fallingObjectNumber], poolParent.transform);
             FallingObject newfallingObject = newObject.GetComponent<FallingObject>();
             newfallingObject.SetPool(this);
             newObject.SetActive(false);
