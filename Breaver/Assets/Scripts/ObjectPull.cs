@@ -32,13 +32,14 @@ public class ObjectPull : MonoBehaviour
         }
     }
 
-    public MovableObject GetfallingObject() {
+    public GameObject GetfallingObject() {
         if (pool.Count == 0) {
             IncreasePool();
         }
         GameObject newfallingObject = pool.Dequeue();
         newfallingObject.SetActive(true);
-        MovableObject movable = newfallingObject.GetComponent<MovableObject>();
-        return movable;
+        return newfallingObject;
     }
+
+
 }
