@@ -126,9 +126,10 @@ public class Launch : MonoBehaviour
     {
         Rigidbody thing = holder.transform.GetChild(0).GetComponent<Rigidbody>();
         thing.GetComponent<Object>().Unparent();
-        
+        thing.GetComponent<Object>().thrown = true;
 
         thing.AddForce(dir * maxForce * forcePercentage);
+
         canAim = true;
     }
 }
