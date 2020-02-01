@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class fallingObjectPull : MonoBehaviour
+public class ObjectPull : MonoBehaviour
 {
     public GamefallingObject fallingObject;
     public GamefallingObject poolParent;
