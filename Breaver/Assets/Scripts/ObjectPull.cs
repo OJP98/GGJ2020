@@ -17,19 +17,18 @@ public class ObjectPull : MonoBehaviour
 
     public void ReturnToPool(GameObject toRecycle) {
         toRecycle.SetActive(false);
-        toRecycle.gamefallingObject.transform.SetParent(poolParent.transform);
+        toRecycle.gameObject.transform.SetParent(poolParent.transform);
         pool.Enqueue(toRecycle);
     }
 
 
     private void IncreasePool() {
-        
         for (int i = 0; i < poolSize; i++) {
-            GameObject newfallingObject = Instantiate(fallingObject, poolParent.transform);
-            Food newfallingObject = newfallingObject.GetComponent<Food>();
+            GameObject newObject = Instantiate(fallingObject, poolParent.transform);
+            FallingObject newfallingObject = newObject.GetComponent<FallingObject>();
             newfallingObject.SetPool(this);
-            newfallingObject.SetActive(false);
-            pool.Enqueue(newfallingObject);
+            newObject.SetActive(false);
+            pool.Enqueue(newObject);
         }
     }
 
