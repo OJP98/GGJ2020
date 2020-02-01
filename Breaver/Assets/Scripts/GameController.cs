@@ -4,27 +4,37 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private float maxStackHeight = 0;
+    private float decreasingRate = 0.01f;
+
     void Start()
     {
-        GameObject[] lista = FindGameObjectsWithLayer(9);
+        // GameObject[] lista = FindGameObjectsWithLayer();
+        // InvokeRepeating("FindGameObjectsWithLayer", 1, 1);
     }
 
-    // Update is called once per frame
     void Update()
     {
-
+        GameObject[] lista = FindGameObjectsWithLayer();
     }
 
-    GameObject[] FindGameObjectsWithLayer(int layer){
-        GameObject[] gos = GameObject.FindObjectsOfType(typeof(GameObject)) as GameObject[]; //will return an array of all GameObjects in the scene
+    GameObject[] FindGameObjectsWithLayer(){
+        GameObject[] gos = GameObject.FindObjectsOfType(typeof(GameObject)) as GameObject[];
         foreach (GameObject go in gos)
         {
-            if (go.layer == layer)
+            if (go.layer == 9)
             {
-                Debug.Log(go.name);
+                if (go.transform.position.y > maxStackHeight)
+                {
+                    maxStackHeight = go.transform.position.y;
+                }
+
+                go.transform.position = new Vector3(go.transform.position.x, go.transform.position.y - (decreasingRate*Time.deltaTime*7), go.transform.position.z);
             }
         }
+
+        maxStackHeight -= decreasingRate;
+
         return gos;
- }
+    }
 }
