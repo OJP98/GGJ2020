@@ -6,13 +6,13 @@ public class Launch : MonoBehaviour
 {
 
     [SerializeField] private float radio;
-    private Transfom center;
+    // private Transfom center;
     
     
     // Start is called before the first frame update
     void Start()
     {
-        center = GetComponentInChildren<Transfrom>();
+        // center = GetComponentInChildren<Transfrom>();
     }
 
     // Update is called once per frame
