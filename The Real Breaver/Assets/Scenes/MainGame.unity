@@ -1820,7 +1820,12 @@ PrefabInstance:
     - target: {fileID: 5587680129136278545, guid: 863efb53336d6aa4bb30ae3fd8944a15,
         type: 3}
       propertyPath: m_PlayOnAwake
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5587680129136278545, guid: 863efb53336d6aa4bb30ae3fd8944a15,
+        type: 3}
+      propertyPath: BypassReverbZones
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5587680129136278558, guid: 863efb53336d6aa4bb30ae3fd8944a15,
         type: 3}
