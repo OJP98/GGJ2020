@@ -33,7 +33,7 @@ public class GameController : MonoBehaviour
                     maxStackHeight = go.transform.position.y;
                     //Water
                     maxStackWidth =  Mathf.Abs(go.transform.position.x);
-                    // water.gameObject.transform.localScale =  originalDistance - maxStackWidth;
+                    // water.gameObject.transform.localScale = new Vector3 originalDistance - maxStackWidth;
                     // water.position.x = -((water.size.x / 2) - originalDistance);
                 }
 
