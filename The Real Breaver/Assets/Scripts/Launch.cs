@@ -37,6 +37,7 @@ public class Launch : MonoBehaviour
     void Start()
     {
         center = GetComponentInChildren<Chest>();
+        direction = GetComponentInChildren<Direction>().transform;
 
         direction.localPosition = new Vector3(ratio * Mathf.Cos(Mathf.Deg2Rad * currentAngle),
             ratio * Mathf.Sin(Mathf.Deg2Rad * currentAngle),
