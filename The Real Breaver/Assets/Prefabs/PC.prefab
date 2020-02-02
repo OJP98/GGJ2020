@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4356985853758564466}
   - component: {fileID: 4356985853758564477}
   - component: {fileID: 4356985853758564476}
+  - component: {fileID: 363855584261896436}
   m_Layer: 0
   m_Name: PC
   m_TagString: Untagged
@@ -91,6 +92,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 8
   m_CollisionDetection: 0
+--- !u!65 &363855584261896436
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4356985853758564479}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3152395, y: 2.0668888, z: 2.5949626}
+  m_Center: {x: -0.052539945, y: -0.3080449, z: -0.009382739}
 --- !u!1001 &4356985854942051671
 PrefabInstance:
   m_ObjectHideFlags: 0

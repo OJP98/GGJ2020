@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5517995364693988538}
   - component: {fileID: 1274444297794696100}
   - component: {fileID: 8831209848289831678}
+  - component: {fileID: 352973389947287019}
   m_Layer: 0
   m_Name: tire
   m_TagString: Untagged
@@ -92,6 +93,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 8
   m_CollisionDetection: 0
+--- !u!65 &352973389947287019
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995172669837121808}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.626003, y: 0.42292476, z: 2.6444817}
+  m_Center: {x: -0.00000059604645, y: 0.12207353, z: -0.02771616}
 --- !u!1 &1995172669837121812
 GameObject:
   m_ObjectHideFlags: 0
