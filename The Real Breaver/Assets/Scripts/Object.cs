@@ -37,6 +37,7 @@ public class Object : MonoBehaviour
 
         if (cantObjetos == 0) CancelInvoke("DoIStop");
     }
+    
 
     public void Unparent()
     {
