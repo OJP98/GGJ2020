@@ -14,10 +14,7 @@ public class CountdownTimer : MonoBehaviour
     private int segundos = 0;
     private string min = "";
     private string seg = "";
-    public int points;
     public Canvas canvas;
-    public AudioSource mainBand;
-    public AudioSource endingMusic;
     
     [SerializeField] Text countdownText = null;
 
@@ -26,17 +23,16 @@ public class CountdownTimer : MonoBehaviour
     {
         currentTime = startingTime;
         canvas.enabled = true;
-        mainBand.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentTime -= 1 * Time.deltaTime;
+        currentTime += 1 * Time.deltaTime;
         showTime = Convert.ToInt32(Math.Ceiling(currentTime));
         minutos = Convert.ToInt32(Math.Floor(currentTime / 60));
         segundos = showTime - (60 * minutos);
-        if (minutos <= 0 && segundos == 60)
+        if (minutos <= 0 && segundos >= 60)
         {
             minutos = 0;
             if (minutos > 0)
@@ -44,14 +40,15 @@ public class CountdownTimer : MonoBehaviour
                 segundos = 0;
             }
         }
-        if (minutos < 10)
+        if (minutos >= 0)
         {
-            min = "0" + minutos;
-        }
-        else
-        {
-            min = minutos.ToString();
-        }
+            if (segundos >= 60)
+            {
+                minutos = 1;
+                segundos = 0;
+            }
+            min = "" + minutos;
+        }        
         if (segundos < 10)
         {
             seg = "0" + segundos;
@@ -60,14 +57,6 @@ public class CountdownTimer : MonoBehaviour
         {
             seg = segundos.ToString();
         }
-        countdownText.text = min + ":" + seg;//showTime.ToString("0");
-
-        if (currentTime <= 0)
-        {
-            mainBand.Stop();
-            currentTime = 0;
-            //SceneManager.LoadScene("Score", LoadSceneMode.Additive);
-            canvas.enabled = false;
-        }
+        countdownText.text = min + ":" + seg;//showTime.ToString("0");        
     }
 }
