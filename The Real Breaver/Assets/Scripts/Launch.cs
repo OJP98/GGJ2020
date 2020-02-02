@@ -15,7 +15,7 @@ public class Launch : MonoBehaviour
     [SerializeField] private Transform direction;
 
     [SerializeField] private int maxForce = 100;
-    [SerializeField] private int speedForce = 100;
+    [SerializeField] private int speedForce = 150;
 
     [SerializeField] private GameObject holder;
 
@@ -48,16 +48,6 @@ public class Launch : MonoBehaviour
     }
 
     private void Update() {
-        /*
-        if (Input.GetButtonDown("Jump")) {
-            if (canAim)
-                canAim = false;
-            else
-            {
-                launch(direction.position - center.transform.position);
-                haveSomething = false;
-            }  
-        }*/
         
 
         if (holder.transform.childCount > 0)
@@ -132,5 +122,6 @@ public class Launch : MonoBehaviour
         thing.AddForce(dir * maxForce * forcePercentage);
 
         canAim = true;
+        currentForce = Random.Range(0, maxForce);
     }
 }

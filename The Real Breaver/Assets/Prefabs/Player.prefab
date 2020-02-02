@@ -132,7 +132,7 @@ Transform:
   m_GameObject: {fileID: 9065354798486032751}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.329, z: 0}
-  m_LocalScale: {x: 1.25, y: 1, z: 1.75}
+  m_LocalScale: {x: 1, y: 0.75, z: 0.5}
   m_Children:
   - {fileID: 9065354797851029544}
   - {fileID: 9065354799061165405}
@@ -185,7 +185,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.05, z: 0.25}
+  m_Center: {x: 0, y: 0.065, z: 0.25}
 --- !u!114 &9065354798486032742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,7 +348,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9065354799061165404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.17, y: 0.18, z: 0}
+  m_LocalPosition: {x: 1.087, y: 0.338, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9065354798486032744}

@@ -37,7 +37,7 @@ public class RandomRain : MonoBehaviour
         //int fallingObjectNumber = Random.Range(0, objectPool.Count);
         currentTime = 0f;
         //GameObject fallingObject = objectPool[fallingObjectNumber];
-        Vector3 posicion = new Vector3(Random.Range(0, 5), 20, 0);
+        Vector3 posicion = new Vector3(Random.Range(3, 7), 15, 0);
         //Instantiate(fallingObject, posicion, Quaternion.identity);
         GameObject fallingObject = pull.GetfallingObject();
         fallingObject.gameObject.transform.position = posicion;
