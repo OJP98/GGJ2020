@@ -9,7 +9,10 @@ public class RandomRain : MonoBehaviour
     //public GameObject esfera;
     private int totalFallenObjects;
     float currentTime = 0f;
+    float currentTime2 = 0f;
     public ObjectPull pull;
+    private float increaseRatio;
+
     //public FallingObject objectFalled;
 
     // Start is called before the first frame update
@@ -17,8 +20,9 @@ public class RandomRain : MonoBehaviour
     {
         //sendObject();
         totalFallenObjects = 0;
-      //  objectPool.Add(cubo);
-      //  objectPool.Add(esfera);
+        //  objectPool.Add(cubo);
+        //  objectPool.Add(esfera);
+        increaseRatio = 7.5f;
 
     }
 
@@ -26,6 +30,19 @@ public class RandomRain : MonoBehaviour
     void Update()
     {
         currentTime += Time.deltaTime;
+        currentTime2 += Time.deltaTime;
+        if (currentTime2 >= increaseRatio)
+        {
+            if (fallingTime <= 1.5f)
+            {
+                fallingTime = 1.5f;
+            }
+            else
+            {
+                fallingTime -= 0.35f;
+                currentTime2 = 0f;
+            }
+        }
         if (currentTime >= fallingTime)
         {
             sendObject();
@@ -37,7 +54,7 @@ public class RandomRain : MonoBehaviour
         //int fallingObjectNumber = Random.Range(0, objectPool.Count);
         currentTime = 0f;
         //GameObject fallingObject = objectPool[fallingObjectNumber];
-        Vector3 posicion = new Vector3(Random.Range(0, 5), 20, 0);
+        Vector3 posicion = new Vector3(Random.Range(3, 7), 15, 0);
         //Instantiate(fallingObject, posicion, Quaternion.identity);
         GameObject fallingObject = pull.GetfallingObject();
         fallingObject.gameObject.transform.position = posicion;

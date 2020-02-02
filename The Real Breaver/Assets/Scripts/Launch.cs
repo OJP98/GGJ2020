@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Launch : MonoBehaviour
 {
+    private Animator animator;
+    private float timeToLaunch = 0f;
 
     [SerializeField] private float ratio = 2.5f;
     [SerializeField] private int minAngle = -5;
@@ -15,7 +17,7 @@ public class Launch : MonoBehaviour
     [SerializeField] private Transform direction;
 
     [SerializeField] private int maxForce = 100;
-    [SerializeField] private int speedForce = 100;
+    [SerializeField] private int speedForce = 150;
 
     [SerializeField] private GameObject holder;
 
@@ -36,6 +38,7 @@ public class Launch : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponentInChildren<Animator>();
         center = GetComponentInChildren<Chest>();
         direction = GetComponentInChildren<Direction>().transform;
 
@@ -48,17 +51,13 @@ public class Launch : MonoBehaviour
     }
 
     private void Update() {
-        /*
-        if (Input.GetButtonDown("Jump")) {
-            if (canAim)
-                canAim = false;
-            else
-            {
-                launch(direction.position - center.transform.position);
-                haveSomething = false;
-            }  
-        }*/
-        
+        if (timeToLaunch > 0)
+        {
+            timeToLaunch -= Time.deltaTime;
+        } else {
+            timeToLaunch = 0f;
+            animator.SetBool("hasLaunched", false);
+        }
 
         if (holder.transform.childCount > 0)
             haveSomething = true;
@@ -114,7 +113,12 @@ public class Launch : MonoBehaviour
                 progressFore.fillAmount = forcePercentage;
                 progressFore.color = gradient.Evaluate(forcePercentage);
 
-                if (Input.GetButtonDown("Jump")) launch(direction.position - center.transform.position, forcePercentage);
+                if (Input.GetButtonDown("Jump")) {
+                    launch(direction.position - center.transform.position, forcePercentage);
+                    animator.SetBool("hasLaunched", true);
+                    timeToLaunch = 0.45f;
+
+                }
             }
         }
         else {
@@ -132,5 +136,6 @@ public class Launch : MonoBehaviour
         thing.AddForce(dir * maxForce * forcePercentage);
 
         canAim = true;
+        currentForce = Random.Range(0, maxForce);
     }
 }
