@@ -146,6 +146,7 @@ MonoBehaviour:
   isStack: 0
   thrown: 0
   moveSpeed: 0.1
+  kobe: {fileID: 5587680129136278545, guid: 863efb53336d6aa4bb30ae3fd8944a15, type: 3}
 --- !u!114 &5122081042434162341
 MonoBehaviour:
   m_ObjectHideFlags: 0

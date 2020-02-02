@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3502657827473535811}
   - component: {fileID: 5314127177913847349}
   m_Layer: 0
-  m_Name: Cone
+  m_Name: cone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,6 +64,7 @@ MonoBehaviour:
   isStack: 0
   thrown: 0
   moveSpeed: 0.1
+  kobe: {fileID: 5587680129136278545, guid: 863efb53336d6aa4bb30ae3fd8944a15, type: 3}
 --- !u!114 &3502657827473535810
 MonoBehaviour:
   m_ObjectHideFlags: 0

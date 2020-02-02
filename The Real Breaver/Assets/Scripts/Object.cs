@@ -10,6 +10,7 @@ public class Object : MonoBehaviour
     public float moveSpeed = 0.1f;
     private IEnumerator coroutine;
     private int cantObjetos;
+    public AudioSource kobe;
 
     void Start()
     {
@@ -64,5 +65,6 @@ public class Object : MonoBehaviour
         gameObject.layer = 9;
         thrown = false;
         rb.isKinematic = true;
+        kobe.Play();
     }
 }
