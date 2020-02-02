@@ -25,6 +25,7 @@ public class CharacterScript : MonoBehaviour
         Move();
         ChangeDirection();
         if (Input.GetKeyDown(KeyCode.LeftShift)) GrabObject();
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
     }
 
     void Move()
