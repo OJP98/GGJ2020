@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6296999333319845272
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1167196987272184988}
+  - component: {fileID: 2130367984100882987}
+  - component: {fileID: 8124021535835295524}
+  m_Layer: 0
+  m_Name: Cloud
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1167196987272184988
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6296999333319845272}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2130367984100882987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6296999333319845272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13d12872602eddd41bbbebae49ae2786, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallingTime: 5
+  pull: {fileID: 8124021535835295524}
+--- !u!114 &8124021535835295524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6296999333319845272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67b77b6983cba56459c62b4cca8afe9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallingObject:
+  - {fileID: 435630677250233907, guid: e6fa8d3d63cdd2048a4c81f5670b044f, type: 3}
+  - {fileID: 7653185558570284522, guid: b9953bf152669d84f84d5a20277ea2f9, type: 3}
+  - {fileID: 7587812772204299383, guid: cbc4966967fb09e4b9c7cb37e8764ece, type: 3}
+  - {fileID: 1995172669837121808, guid: 734fdaa972de8c34e98bb80c1f37f7be, type: 3}
+  poolParent: {fileID: 6296999333319845272}
