@@ -15,6 +15,11 @@ public class MainMenuScript : MonoBehaviour
         Application.Quit();
     }
 
+    public void ReturnMainScreen()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     // Update is called once per frame
     void Update()
     {
