@@ -14,11 +14,16 @@ public class CharacterScript : MonoBehaviour
     private ObjectDetection objectDetection;
     private Holder holder;
 
+    private Animator animator;
+    private bool canJump = true;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         objectDetection = GetComponent<ObjectDetection>();
         holder = GetComponent<Holder>();
+
+        animator = GetComponentInChildren<Animator>();
     }
     void Update()
     {
@@ -32,18 +37,33 @@ public class CharacterScript : MonoBehaviour
     {
         if(characterController.isGrounded)
         {
+            animator.SetBool("hasJumped", false);
+            canJump = true;
+
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
             moveDirection *= speed;
-            if (Input.GetAxis("Vertical") > 0) moveDirection.y = jumpSpeed;
+
+            if (moveDirection.magnitude > 0) animator.SetBool("isMoving", true);
+            else animator.SetBool("isMoving", false);
+
+            if (Input.GetAxis("Vertical") > 0) {
+                moveDirection.y = jumpSpeed;
+
+                if (canJump) {
+                    Debug.Log("ha saltado");
+                    animator.SetBool("hasJumped", true);
+                    Debug.Log(animator.GetBool("hasJumped"));
+                    canJump = false;
+                }
+            }
         }
         else
         {
             moveDirection = new Vector3(Input.GetAxis("Horizontal")*speed, moveDirection.y, 0.0f);
         }
         moveDirection.y -= gravity * Time.deltaTime;
+
         characterController.Move(moveDirection * Time.deltaTime);
-
-
     }
 
     void GrabObject()
