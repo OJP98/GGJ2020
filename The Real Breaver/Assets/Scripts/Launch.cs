@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Launch : MonoBehaviour
 {
+    private Animator animator;
+    private float timeToLaunch = 0f;
 
     [SerializeField] private float ratio = 2.5f;
     [SerializeField] private int minAngle = -5;
@@ -36,6 +38,7 @@ public class Launch : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponentInChildren<Animator>();
         center = GetComponentInChildren<Chest>();
         direction = GetComponentInChildren<Direction>().transform;
 
@@ -48,7 +51,13 @@ public class Launch : MonoBehaviour
     }
 
     private void Update() {
-        
+        if (timeToLaunch > 0)
+        {
+            timeToLaunch -= Time.deltaTime;
+        } else {
+            timeToLaunch = 0f;
+            animator.SetBool("hasLaunched", false);
+        }
 
         if (holder.transform.childCount > 0)
             haveSomething = true;
@@ -104,7 +113,12 @@ public class Launch : MonoBehaviour
                 progressFore.fillAmount = forcePercentage;
                 progressFore.color = gradient.Evaluate(forcePercentage);
 
-                if (Input.GetButtonDown("Jump")) launch(direction.position - center.transform.position, forcePercentage);
+                if (Input.GetButtonDown("Jump")) {
+                    launch(direction.position - center.transform.position, forcePercentage);
+                    animator.SetBool("hasLaunched", true);
+                    timeToLaunch = 0.45f;
+
+                }
             }
         }
         else {
