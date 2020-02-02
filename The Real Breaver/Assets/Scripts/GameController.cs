@@ -14,12 +14,12 @@ public class GameController : MonoBehaviour
     {
         // GameObject[] lista = FindGameObjectsWithLayer();
         // InvokeRepeating("FindGameObjectsWithLayer", 1, 1);
+        originalDistance = water.gameObject.transform.position.x;
     }
 
     void Update()
     {
         GameObject[] lista = FindGameObjectsWithLayer();
-        originalDistance = Mathf.Abs(water.gameObject.transform.position.x);
     }
 
     GameObject[] FindGameObjectsWithLayer(){
@@ -31,10 +31,15 @@ public class GameController : MonoBehaviour
                 if (go.transform.position.y > maxStackHeight)
                 {
                     maxStackHeight = go.transform.position.y;
-                    //Water
-                    maxStackWidth =  Mathf.Abs(go.transform.position.x);
-                    // water.gameObject.transform.localScale = new Vector3 originalDistance - maxStackWidth;
-                    // water.position.x = -((water.size.x / 2) - originalDistance);
+                    maxStackWidth =  Mathf.Abs(originalDistance - go.transform.position.x);
+
+                    Vector3 waterScale = water.gameObject.transform.localScale;
+                    Vector3 waterPos = water.gameObject.transform.position;
+
+                    water.gameObject.transform.localScale = new Vector3(maxStackWidth, waterScale.y, waterScale.z);
+
+                    waterPos = new Vector3(((Mathf.Abs(maxStackWidth) / 2) + originalDistance), waterPos.y, waterPos.z);
+                    water.gameObject.transform.position = waterPos;
                 }
 
                 go.transform.position = new Vector3(go.transform.position.x, go.transform.position.y - (decreasingRate*Time.deltaTime*7), go.transform.position.z);
