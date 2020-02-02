@@ -50,9 +50,7 @@ public class CharacterScript : MonoBehaviour
                 moveDirection.y = jumpSpeed;
 
                 if (canJump) {
-                    Debug.Log("ha saltado");
                     animator.SetBool("hasJumped", true);
-                    Debug.Log(animator.GetBool("hasJumped"));
                     canJump = false;
                 }
             }

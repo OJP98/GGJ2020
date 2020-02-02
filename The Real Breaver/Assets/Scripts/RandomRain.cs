@@ -22,7 +22,7 @@ public class RandomRain : MonoBehaviour
         totalFallenObjects = 0;
         //  objectPool.Add(cubo);
         //  objectPool.Add(esfera);
-        increaseRatio = 7.5f;
+        increaseRatio = 8f;
 
     }
 
@@ -35,11 +35,11 @@ public class RandomRain : MonoBehaviour
         {
             if (fallingTime <= 1.5f)
             {
-                fallingTime = 1.5f;
+                fallingTime = 2.25f;
             }
             else
             {
-                fallingTime -= 0.35f;
+                fallingTime -= 0.25f;
                 currentTime2 = 0f;
             }
         }
